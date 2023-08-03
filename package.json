@@ -1,0 +1,22 @@
+{
+  "name": "yt-thumb-gen",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/handler.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/handler.mjs",
+    "zip": "rm -rf node_modules deploy.zip && npm install --only=production && zip -r deploy.zip ./ -x '.git/*'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "googleapis": "^120.0.0",
+    "puppeteer-core": "^20.7.4"
+  },
+  "devDependencies": {
+    "@sparticuz/chromium": "^114.0.0"
+  }
+}

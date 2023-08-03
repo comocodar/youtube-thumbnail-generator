@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thumbnail Template</title>
+  <style>
+    :root {
+      font-size: 20px;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    body {
+      margin: 0;
+    }
+
+    div.frame {
+      box-sizing: border-box;
+      padding: 1.6rem;
+      background: #e2e1e0;
+      display: flex;
+      flex-wrap: wrap;
+      height: 100vh;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+
+    div.comment-container {
+      background: #fff;
+      padding: 1.2rem;
+      box-shadow: 0 0.3rem 0.6rem rgba(0,0,0,0.16), 0 0.3rem 0.6rem rgba(0,0,0,0.23);
+      border-radius: 0.4rem;
+      max-width: 28rem;
+    }
+    
+    div.author {
+      display: inline-flex;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+
+    img.author-thumbnail {
+      width: 4rem;
+      height: 4rem;
+      margin-right: 1.2rem;
+      border-radius: 50%;
+    }
+
+    h3.author-nick {
+      color: #0f0f0f;
+      margin-top: 0;
+      margin-bottom: 0.2rem;
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      max-width: 20.8rem;
+      font-size: 1.6rem;
+      font-weight: 500;
+    }
+
+    span.comment-text {
+      display: block;
+      display: -webkit-box;
+      font-size: 2rem;
+      line-height: 2.3rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      max-height: 10rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 4;
+    }
+
+    .is-overflow {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="frame">
+    <all-comments></all-comments>
+  </div>
+
+  <script>
+    window.addEventListener('load', () => {
+      const allCommentContainers =
+        document.querySelectorAll('div.comment-container');
+
+      let rotateAngle = -6;
+
+      allCommentContainers.forEach((commentContainer, index) => {
+        const bottonOfCommentContainer = commentContainer.offsetTop
+          + commentContainer.offsetHeight;
+
+        if (bottonOfCommentContainer > 720) {
+          commentContainer.classList.add('is-overflow');
+        } else {
+          commentContainer.style.transform = `rotate(${rotateAngle}deg)`;
+          rotateAngle *= -1;
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

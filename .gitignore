@@ -1,0 +1,4 @@
+node_modules/
+src/credentials/*
+!src/credentials/*.example.json
+*.zip
