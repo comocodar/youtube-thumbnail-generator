@@ -69,7 +69,9 @@ function getRecentComments(comments, thumbnailUpdateIntervalInSeconds) {
 }
 
 export async function listNewComments(
-  videoId, thumbnailUpdateIntervalInSeconds = 60 * 5
+  videoId,
+  thumbnailUpdateIntervalInSeconds = 60 * 5,
+  channelIdsToIgnoreComments = []
 ) {
   let mapedComments = [];
 
@@ -80,8 +82,12 @@ export async function listNewComments(
       maxResults: 10,
     });
 
+    const commentsNotIgnored = response.data.items.filter(
+      comment => !channelIdsToIgnoreComments.includes(comment.snippet.topLevelComment.snippet.authorChannelId.value)
+    );
+
     const comments = getRecentComments(
-      response.data.items, thumbnailUpdateIntervalInSeconds
+      commentsNotIgnored, thumbnailUpdateIntervalInSeconds
     );
 
     if (comments.length === 0) {

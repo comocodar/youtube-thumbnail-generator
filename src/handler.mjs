@@ -4,6 +4,7 @@ import { generateThumbnail } from './thumbnail.mjs';
 import { sendTextMessage } from './telegram.mjs';
 
 const thumbnailUpdateIntervalInSeconds = 60 * 8;
+const comocodarChannelId = 'UCE5SutNgGUu3LYQNZMYnI1Q';
 
 export const handler = async (event) => {
   let statusCode = 200;
@@ -15,7 +16,7 @@ export const handler = async (event) => {
     const videoId = event.videoId;
     await autenticate();
     const videoComments = await listNewComments(
-      videoId, thumbnailUpdateIntervalInSeconds
+      videoId, thumbnailUpdateIntervalInSeconds, [comocodarChannelId]
     );
 
     if (videoComments.length > 0) {
