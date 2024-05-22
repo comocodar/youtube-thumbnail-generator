@@ -20,3 +20,14 @@ git clone git@github.com:comocodar/youtube-thumbnail-generator.git
 cd youtube-thumbnail-generator
 npm install
 ```
+
+### Real implementation example
+
+I used this script to automatically update my video cover with the latest comments, it runs automatically, every 8 minutes, in an AWS Lambda function.
+
+<p align="center">
+  <a href="https://youtu.be/nknQwgS3s60">
+    <img src="http://img.youtube.com/vi/nknQwgS3s60/0.jpg" alt="Real implementation example" />
+  </a>
+</p>
+<p align="center"><a href="https://youtu.be/nknQwgS3s60">https://youtu.be/nknQwgS3s60</a></p>
