@@ -105,9 +105,9 @@ export async function listNewComments(
       mapedComments = commentsFromUniquePeople.map(comment => {
         const snippet = comment.snippet.topLevelComment.snippet;
         const authorChannelId = snippet.authorChannelId.value;
+        const channelHandle = snippet.authorDisplayName;
 
         const {
-          channelHandle,
           profilePictureUrl,
         } = channelsCustomUrlAndProfilePicture[authorChannelId];
 
